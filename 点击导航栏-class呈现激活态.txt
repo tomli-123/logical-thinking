@@ -2,7 +2,7 @@
 class="cateTitle" 
 :class="{cateTitleActive: activeIndex === index}">
 
-//点击事件
+// 点击事件
  categoryTap(index){
       this.categoryListData = this.categoryList[index].children
       this.activeIndex = index
