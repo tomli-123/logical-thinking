@@ -1,0 +1,9 @@
+<view @click="categoryTap(index)" 
+class="cateTitle" 
+:class="{cateTitleActive: activeIndex === index}">
+
+µã»÷ÊÂ¼þ
+ categoryTap(index){
+      this.categoryListData = this.categoryList[index].children
+      this.activeIndex = index
+    }

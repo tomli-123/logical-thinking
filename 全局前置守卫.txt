@@ -1,0 +1,15 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+const router = new VueRouter()
+router.beforeEach((to, from, next) => {
+  // console.log(to, next)
+  // console.log('被守卫拦着了')
+  const userInfo = getUser()
+  if (to.path === '/login' || userInfo.token) {
+    next()
+  } else {
+    // 不是去登录, 且没票(没有token), 拦截去登录
+    next('/login')
+  }
+})
+export default router
