@@ -1,0 +1,8 @@
+/*当重复设置某些属性为相同的值时，不会同步到view层。 例如：每次将scroll-view组件的scroll-top属性值设置为0，只有第一次能顺利返回顶部。 这和props的单向数据流特性有关，组件内部scroll-top的实际值改动后，其绑定的属性并不会一同变化。*/
+
+/*在事件中使用该代码即可(记得使用 scroll-top属性)*/
+  this.scrollTop = 1
+      this.$nextTick(()=>{
+        this.scrollTop = 0
+      })      
+    }
