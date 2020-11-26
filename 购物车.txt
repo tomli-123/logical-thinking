@@ -1,0 +1,49 @@
+/*
+// 加入购物车
+data (){
+    return {
+      detail : {}
+    }
+  },
+  methods : {
+    // 请求
+    async getDetail(id) {
+      let res = await this.$http({
+        url : '/goods/detail',
+        data : {
+          goods_id : id
+        }
+      })
+      console.log('详情页:',res);
+      this.detail = res
+    },
+    addCart(){
+
+      //1. 先尝试着从 本地获取购物车
+      let carts = uni.getStorageSync('carts') || []
+
+      //2. 尝试着根据当前商品的id, 获取购物车里面对应的商品
+      // 这个 goods 是购物车里面 商品
+      let goods = carts.find(v => v.goods_id == this.detail.goods_id)
+
+      console.log('goods:',goods);
+      // 3. 判断 goods 有没有值,
+      if (goods) {
+        // 之前 有把该商品加入到购物车过
+        goods.count ++
+        
+      }else {
+        // 之前没有把该商品 加入 到购物车过
+
+        this.detail.count = 1
+        carts.push(this.detail)
+      }
+      //4. 再保存 到本地
+      uni.setStorageSync('carts',carts)
+
+      //5. 弹框
+      uni.showToast({
+        title : '加入购物车成功'
+      })
+    },
+*/
